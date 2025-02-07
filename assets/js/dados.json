@@ -1,0 +1,39 @@
+{
+    "tasks": [
+        {
+        "id": 1,
+        "title": "Comprar mantimentos",
+        "description": "Comprar leite, ovos e pão",
+        "tags": ["compras", "urgente"],
+        "completed": false
+        },
+        {
+        "id": 2,
+        "title": "Revisar código",
+        "description": "Revisar a PR #45 no GitHub",
+        "tags": ["trabalho", "dev"],
+        "completed": false
+        },
+        {
+        "id": 3,
+        "title": "Fazer exercícios",
+        "description": "Treino de musculação e corrida de 5km",
+        "tags": ["saúde", "fitness"],
+        "completed": true
+        },
+        {
+        "id": 4,
+        "title": "Assistir aula de Docker",
+        "description": "Completar o módulo 3 do curso de Docker",
+        "tags": ["estudo", "docker"],
+        "completed": false
+        },
+        {
+        "id": 5,
+        "title": "Ler um livro",
+        "description": "Ler pelo menos 20 páginas do livro atual",
+        "tags": ["lazer", "leitura"],
+        "completed": true
+        }
+    ]
+}
