@@ -45,3 +45,18 @@ header .container-header2{
     text-align: end;
     margin-right: 30px;
 }
+
+header .container-header2 button{
+    border: none;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+    user-select: none;
+}
+
+header .container-header2 button:active{
+    background-color: rgb(220, 220, 220);
+}
