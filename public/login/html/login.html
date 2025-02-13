@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do - Login</title>
+    <link rel="stylesheet" href="../public/global/css/global.css">
+    <link rel="stylesheet" href="../public/login/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome aboard, chief!</h1>
+        <div class="container-login">
+            <input type="text" name="Username" id="username" placeholder="Username">
+            <input type="password" name="Password" id="password" placeholder="Password">
+            <button>Enter</button>
+            <div class="container-new-user">
+                <p>Don't have an account?</p>
+                <a href="/">Create Account</a>
+            </div>
+        </div>
+        <div class="container-create">
+            <input type="text" name="Username" id="username-create" placeholder="Username">
+            <input type="text" name="Password" id="password-create" placeholder="Password">
+            <button onclick="createAccount()">Save</button>
+        </div>
+    </div>
+</body>
+<script src="../public/login/js/login.js"></script>
+</html>

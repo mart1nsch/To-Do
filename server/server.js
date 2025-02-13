@@ -7,22 +7,52 @@ const port = 3001;
 const server = http.createServer((req, res) => {
 
     const q = url.parse(req.url, true);
-    let fileName = q.pathname.substring(1);
-    let contentType;
+    const fileName = q.pathname.substring(1);
 
-    if (fileName.includes('html')) {
+    if (!fileName) { // Página de Login
 
-        contentType = "text/html";
+        fs.readFile('../public/login/html/login.html', (err, data) => {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write(data);
+            return res.end();
+        });
 
-    }
+    } else if (fileName.includes('home')) { // Página Home
 
-    if (contentType) {
 
-        res.writeHead(200, { "Content-Type": contentType });
-        res.end();
+
+    } else if (fileName.includes('.css')) { // Arquivos CSS
+        
+        fs.readFile(`../${fileName}`, (err, data) => {
+            res.writeHead(200, { 'Content-Type': 'text/css' });
+            res.write(data);
+            return res.end();
+        });
+
+    } else if (fileName.includes('.js')) { // Arquivos JS
+        
+        fs.readFile(`../${fileName}`, (err, data) => {
+            res.writeHead(200, { 'Content-Type': 'text/javascript' });
+            res.write(data);
+            return res.end();
+        });
+
+    } else if (fileName.includes('createAccount')) {
+
+        const { username, password } = q.query;
+
+        if (fs.existsSync(`./data/${username}.json`)) {
+            res.writeHead(208, { 'Content-Type': 'text/json' });
+            return res.end();
+        }
+
+        fs.writeFileSync(`./data/${username}.json`, `{ "password": "${password}" }`);
+
+        res.writeHead(201, { 'Content-Type': 'text/json' });
+        return res.end();
 
     } else {
-
+        
         res.writeHead(404, { "Content-Type": "text/html" });
         res.end();
 

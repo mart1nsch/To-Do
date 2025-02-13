@@ -1,0 +1,89 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(25, 25, 25);
+    min-height: 100vh;
+}
+
+.container{
+    width: 22rem;
+    height: 30rem;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container h1{
+    color: white;
+    font-family: 'Spectral', monospace;
+    font-size: 25px;
+    display: none;
+}
+
+.container-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.container-login input, .container-create input{
+    margin-bottom: 10px;
+    border: 3px solid white;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+}
+
+.container-login input, .container-login button, .container-create input, .container-create button{
+    height: 2rem;
+    width: 13rem;
+    font-family: 'Spectral', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 2px;
+}
+
+.container-login button, .container-create button{
+    border: none;
+    cursor: pointer;
+    background-color: rgb(25, 25, 25);
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+
+    &:active{
+        background-color: rgb(18, 18, 18);
+    }
+}
+
+.container-new-user{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-new-user p{
+    color: white;
+    margin-right: 5px;
+}
+
+.container-new-user p, .container-new-user a{
+    font-family: 'Spectral', monospace;
+}
+
+.container-new-user a{
+    color: rgb(62, 154, 216);
+}
+
+.container-create{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
