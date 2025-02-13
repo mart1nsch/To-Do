@@ -13,13 +13,16 @@
         <div class="container-login">
             <input type="text" name="Username" id="username" placeholder="Username">
             <input type="password" name="Password" id="password" placeholder="Password">
-            <button>Enter</button>
+            <button onclick="enterAccount()">Enter</button>
             <div class="container-new-user">
                 <p>Don't have an account?</p>
-                <a href="/">Create Account</a>
+                <a href="#" onclick="goToCreateAccount('create')">Create Account</a>
             </div>
         </div>
         <div class="container-create">
+            <div class="container-return" onclick="goToCreateAccount('login')">
+                <img src="../public/global/img/arrow-return.png">
+            </div>
             <input type="text" name="Username" id="username-create" placeholder="Username">
             <input type="text" name="Password" id="password-create" placeholder="Password">
             <button onclick="createAccount()">Save</button>

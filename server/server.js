@@ -19,7 +19,11 @@ const server = http.createServer((req, res) => {
 
     } else if (fileName.includes('home')) { // Página Home
 
-
+        fs.readFile('../public/home/html/home.html', (err, data) => {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write(data);
+            return res.end();
+        });
 
     } else if (fileName.includes('.css')) { // Arquivos CSS
         
@@ -37,7 +41,15 @@ const server = http.createServer((req, res) => {
             return res.end();
         });
 
-    } else if (fileName.includes('createAccount')) {
+    } else if (fileName.includes('.png')) { // Arquivos PNG
+        
+        fs.readFile(`../${fileName}`, (err, data) => {
+            res.writeHead(200, { 'Content-Type': 'image/png' });
+            res.write(data);
+            return res.end();
+        });
+
+    } else if (fileName.includes('createAccount')) { // Cria conta
 
         const { username, password } = q.query;
 
@@ -51,6 +63,33 @@ const server = http.createServer((req, res) => {
         res.writeHead(201, { 'Content-Type': 'text/json' });
         return res.end();
 
+    } else if (fileName.includes('enterAccount')) { // Acessa a conta
+
+        const { username, password } = q.query;
+        
+        if (!fs.existsSync(`./data/${username}.json`)) {
+            res.writeHead(200, { 'Content-Type': 'text/json' });
+            return res.end();
+        }
+
+        fs.readFile(`./data/${username}.json`, (err, data) => {
+
+            const realPassword = JSON.parse(data).password;
+
+            if (realPassword === password) {
+
+                res.writeHead(202, { 'Content-Type': 'text/json' });
+                return res.end();
+
+            } else {
+
+                res.writeHead(200, { 'Content-Type': 'text/json' });
+                return res.end();
+
+            }
+
+        });
+
     } else {
         
         res.writeHead(404, { "Content-Type": "text/html" });
@@ -58,7 +97,7 @@ const server = http.createServer((req, res) => {
 
     }
 
-})
+});
 
 server.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
